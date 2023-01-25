@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:app.athena.rr-wfm.com?mode=developer</string>
+		<string>applinks:app.rr-wfm.com</string>
+		<string>applinks:app.artemis.rr-wfm.com?mode=developer</string>
+		<string>applinks:app.apollo.rr-wfm.com?mode=developer</string>
+		<string>applinks:app.perseus.rr-wfm.com?mode=developer</string>
+	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.devrieswfm.rrjobapp</string>
+	</array>
+</dict>
+</plist>
