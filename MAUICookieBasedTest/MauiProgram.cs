@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using MAUICookieBasedTest.Services;
 
 namespace MAUICookieBasedTest;
 
@@ -18,6 +19,9 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+
+		builder.Services.AddSingleton<AccountStore>();
+		builder.Services.AddTransient<MainPage>();
 
 		return builder.Build();
 	}

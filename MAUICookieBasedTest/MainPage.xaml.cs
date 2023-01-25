@@ -1,24 +1,27 @@
-﻿namespace MAUICookieBasedTest;
+﻿using MAUICookieBasedTest.Services;
+
+namespace MAUICookieBasedTest;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+	private readonly AccountStore _accountStore;
 
-	public MainPage()
+	public MainPage(AccountStore accountStore)
 	{
+		_accountStore = accountStore ?? throw new ArgumentNullException(nameof(accountStore));
+
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	private async void OnMigrateClicked(object sender, EventArgs e)
 	{
-		count++;
+		var account = await _accountStore.MigrateAccountAsync();
+		if (account == null)
+		{
+			MigrateBtn.Text = "Migration failed";
+		}
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
+		await Navigation.PushAsync(new WebViewPage(_accountStore));
 	}
 }
 
